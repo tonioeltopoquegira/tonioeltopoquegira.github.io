@@ -241,3 +241,14 @@ dialog.project[open] { display: flex; flex-direction: column; }
 .bio { max-width: 66ch; margin: 0 0 2rem; }
 .bio p { margin: 0 0 1.1em; }
 .bio strong { font-weight: 600; }
+
+/* ---- Home: Research and publications list ---- */
+.h-link { color: inherit; text-decoration: none; }
+.h-link:hover { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+.sub-h { font-size: 1.2rem; margin: 2rem 0 0.2rem; }
+.home-pubs { list-style: none; margin: 0; padding: 0; max-width: 780px; }
+.home-pubs li { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.home-pubs li:first-child { border-top: 1px solid var(--rule); }
+.home-pubs .pub-title { display: block; font-family: var(--sans); font-weight: 500; font-size: 1.1rem; line-height: 1.3; margin-bottom: 0.2rem; }
+.home-pubs .pub-authors { display: block; }
+.home-pubs .pub-status { display: block; font-family: var(--sans); font-size: 0.95rem; color: var(--mute); margin-top: 0.15rem; }
