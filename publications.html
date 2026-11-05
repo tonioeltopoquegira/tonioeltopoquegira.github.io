@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publications | Antonio Varagnolo</title>
+  <meta name="description" content="Papers by Antonio Varagnolo on nanoscale heat transfer, molecular discovery, metamaterial design and constrained stochastic optimization.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="name" href="index.html">Antonio Varagnolo</a>
+      <nav aria-label="Main">
+        <a href="index.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html" aria-current="page">Publications</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="page-head">
+        <h1>Publications</h1>
+      </div>
+
+      <section class="pub-group" aria-labelledby="pub-h">
+        <h2 id="pub-h">Published</h2>
+        <article class="pub-entry" id="pub-peds">
+          <h3>Physics Enhanced Deep Surrogates for the Phonon Boltzmann Transport Equation</h3>
+          <p class="authors"><strong>A. Varagnolo</strong>, G. Romano, R. Pestourie</p>
+          <p class="venue">ASME Journal of Heat and Mass Transfer, May 2026</p>
+          <details>
+            <summary>Abstract</summary>
+            <p>Designing materials with controlled heat flow at the nanoscale is central to advances in micro-electronics, thermoelectrics, and energy-conversion technologies. At these scales, phonon transport follows the Boltzmann Transport Equation (BTE), which captures non-diffusive (ballistic) effects but is too costly to solve repeatedly in inverse-design loops. Existing surrogate approaches trade speed for accuracy: fast macroscopic solvers can overestimate conductivities by hundreds of percent, while recent data-driven operator learners often require thousands of high-fidelity simulations. This creates a need for a fast, data-efficient surrogate that remains reliable across ballistic and diffusive regimes. We introduce a physics-enhanced deep surrogate (PEDS) that combines a differentiable Fourier solver with a neural generator and couples it with uncertainty-driven active learning (AL). The Fourier solver acts as a physical inductive bias, while the network learns geometry-dependent corrections and a mixing coefficient that interpolates between macroscopic and nanoscale behavior. PEDS reduces training-data requirements by up to 70% compared with purely data-driven baselines, achieves roughly 5% fractional error (FE) with only 300 high-fidelity BTE simulations, and enables efficient design of porous geometries spanning 12–85 W m<sup>−1</sup> K<sup>−1</sup> with average design errors of 4%. The learned mixing parameter recovers the ballistic–diffusive transition and improves the out-of-distribution robustness. These results show that embedding simple, differentiable low-fidelity physics dramatically increases the surrogate data efficiency and interpretability, making repeated PDE-constrained optimization practical for nanoscale thermal materials design.</p>
+          </details>
+          <p class="pub-links">
+            <a href="https://doi.org/10.1115/1.4071904">Publisher page (DOI)</a>
+            <a href="projects.html#nanoscale-heat-transfer">Project page</a>
+          </p>
+        </article>
+      </section>
+
+      <section class="pub-group" aria-labelledby="rev-h">
+        <h2 id="rev-h">In review</h2>
+
+        <article class="pub-entry" id="pub-chemical">
+          <h3>Interpretable Meta-learning for Multi-objective Chemical Search</h3>
+          <p class="authors"><strong>A. Varagnolo</strong>, Y. Pimonova, M. G. Taylor, R. Pestourie, N. Lubbers</p>
+          <p class="venue">In review. Preprint on arXiv, June 2026</p>
+          <details>
+            <summary>Abstract</summary>
+            <p>Navigating the vast space of synthetically accessible molecules demands surrogate models that are interpretable and capable of handling multiple competing objectives at the same time. Deep learning approaches struggle to satisfy them under the computational constraints of quantum-level chemistry. Here, we introduce a modular pipeline that combines interpretable linear meta-learning models and adaptive-confidence uncertainty quantification into an Efficient Global Optimization (EGO) framework for multi-objective molecular discovery. For the first time, linear meta-learning is deployed in a multi-objective chemical search setting: by training across chemical objectives and cheap auxiliary properties, the meta-learned surrogates acquire transferable chemical knowledge that adapts rapidly to new objectives from limited data. Evaluated empirically on a real large scale search for spin-crossover metal-organic complexes, the baseline performs 78% worse in Pareto sense than the meta-learning alternative. We also address the calibration challenges inherent to active search. Since optimal candidates typically lie precisely in the distributional tails, standard uncertainty estimates fail. We introduce an adaptive confidence-tuning algorithm that dynamically recalibrates the exploration-exploitation trade-off as the molecular search evolves. Empirically, dynamic confidence tuning further dominates over 50% of the statically calibrated front.</p>
+          </details>
+          <p class="pub-links">
+            <a href="https://arxiv.org/abs/2606.20497">arXiv</a>
+            <a href="projects.html#molecular-discovery">Project page</a>
+          </p>
+        </article>
+
+        <article class="pub-entry" id="pub-trama">
+          <h3>Efficient Optimization of Mechanical Metamaterials via Transferable Representation Learning</h3>
+          <p class="authors"><strong>A. Varagnolo</strong><sup>†</sup>, M. Dai<sup>†</sup>, B. Deng, R. Pestourie</p>
+          <p class="venue">In review, 2026. <sup>†</sup> Equal contribution</p>
+          <details>
+            <summary>Abstract</summary>
+            <p>Mechanical metamaterials, whose properties arise from their geometry rather than their composition, enable energy-absorbing structures, protective components, and soft robotic and biomedical devices with prescribed mechanical responses. Designing them for nonlinear behavior such as energy absorption or snap-through is difficult because the design space is high-dimensional and each evaluation requires an expensive, often non-differentiable simulation. Gradient-free optimizers therefore need thousands of evaluations, gradient-based methods remain costly and prone to local optima, and learned surrogates typically require large datasets of nonlinear simulations that are themselves expensive to generate. We introduce TRAMA (TRAnsferable representation learning for Metamaterial Architectures), which instead builds the search space from cheap linear physics: early-stopped, gradient-based optimization of the linear Young's modulus yields a small library of architected structures, which physics-informed augmentation expands more than 200-fold and a pre-trained vision-transformer autoencoder compresses into an eight-dimensional latent space. Bayesian optimization in this space reaches energy-absorption efficiencies within five percentage points of the best gradient-based result using 43% of its computational budget, and uses five to seventeen times fewer evaluations than CMA-ES. Fabricated and tested designs reproduce the simulated stress–strain response to within 5.3%. A post-hoc analysis investigates the transferability capabilities and the limitations of the pipeline. These results show that embedding inexpensive linear physics in a learned representation can improve the efficiency of nonlinear metamaterial design.</p>
+          </details>
+          <p class="pub-links">
+            <a href="projects.html#metamaterials">Project page</a>
+          </p>
+        </article>
+
+        <article class="pub-entry" id="pub-ccsa">
+          <h3>Adaptive Convex Approximations for Constrained Stochastic Optimization</h3>
+          <p class="authors"><strong>A. Varagnolo</strong>, A. Hammond, G. Romano, R. Pestourie, S. G. Johnson</p>
+          <p class="venue">In review, 2026</p>
+          <p class="pub-links">
+            <a href="projects.html#constrained-optimization">Project page</a>
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="links"><a href="mailto:avaragnolo3@gatech.edu">Email</a> <a href="https://www.linkedin.com/in/antonio-varagnolo-431287207/">LinkedIn</a> <a href="https://github.com/tonioeltopoquegira">GitHub</a> <a href="assets/Antonio_Varagnolo_CV.pdf">CV (PDF)</a></p>
+    </footer>
+  </div>
+</body>
+</html>
